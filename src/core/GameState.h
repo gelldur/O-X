@@ -3,6 +3,8 @@
 //
 #pragma once
 
+#include <string>
+
 class GameState
 {
 public:
@@ -15,6 +17,9 @@ public:
 	void gameEnd();
 
 	State getState() const;
+
+	//For debug
+	std::string toString() const;
 
 private:
 	State _state = State::PICK_PLAYER;

@@ -53,7 +53,7 @@ GameBoard::State GameBoard::getBoardState() const
 	{
 		return State::TIE;
 	}
-	return State::NONE;
+	return State::DUNO;
 }
 
 GameBoard::Mark GameBoard::get(ushort x, ushort y) const

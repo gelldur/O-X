@@ -1,9 +1,9 @@
 //
 // Created by Dawid Drozd aka Gelldur on 26/01/17.
 //
-#include <gtest/gtest.h>
-
 #include <limits>
+
+#include <gtest/gtest.h>
 
 #include <core/GameBoard.h>
 
@@ -85,60 +85,60 @@ TEST(GameBoardTest, winDetectionHorizontal)
 {
 	GameBoard gameBoard;
 	EXPECT_TRUE(gameBoard.placeMark(Mark::O, 0, 0));
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 
 	EXPECT_TRUE(gameBoard.placeMark(Mark::O, 0, 1));
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 
 	EXPECT_TRUE(gameBoard.placeMark(Mark::O, 0, 2));
 	EXPECT_EQ(State::WIN_O, gameBoard.getBoardState());
 
 	gameBoard.reset();
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 }
 
 TEST(GameBoardTest, winDetectionVertical)
 {
 	GameBoard gameBoard;
 	EXPECT_TRUE(gameBoard.placeMark(Mark::X, 0, 0));
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 
 	EXPECT_TRUE(gameBoard.placeMark(Mark::X, 1, 0));
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 
 	EXPECT_TRUE(gameBoard.placeMark(Mark::X, 2, 0));
 	EXPECT_EQ(State::WIN_X, gameBoard.getBoardState());
 
 	gameBoard.reset();
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 }
 
 TEST(GameBoardTest, winDetectionCross)
 {
 	GameBoard gameBoard;
 	EXPECT_TRUE(gameBoard.placeMark(Mark::X, 2, 0));
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 
 	EXPECT_TRUE(gameBoard.placeMark(Mark::X, 1, 1));
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 
 	EXPECT_TRUE(gameBoard.placeMark(Mark::X, 0, 2));
 	EXPECT_EQ(State::WIN_X, gameBoard.getBoardState());
 
 	gameBoard.reset();
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 
 	EXPECT_TRUE(gameBoard.placeMark(Mark::O, 2, 2));
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 
 	EXPECT_TRUE(gameBoard.placeMark(Mark::O, 1, 1));
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 
 	EXPECT_TRUE(gameBoard.placeMark(Mark::O, 0, 0));
 	EXPECT_EQ(State::WIN_O, gameBoard.getBoardState());
 
 	gameBoard.reset();
-	EXPECT_EQ(State::NONE, gameBoard.getBoardState());
+	EXPECT_EQ(State::DUNO, gameBoard.getBoardState());
 }
 
 TEST(GameBoardTest, checkTie)

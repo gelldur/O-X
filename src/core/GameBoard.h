@@ -3,6 +3,7 @@
 //
 #pragma once
 
+#include <string>
 #include <array>
 #include <vector>
 
@@ -15,7 +16,7 @@ public:
 
 	enum class Mark : char
 	{
-		X = 'X', O = 'O', EMPTY = ' ', NONE = '\0'
+		X = 'X', O = 'O', EMPTY = '_', NONE = '\0'
 	};
 
 	/**
@@ -26,7 +27,7 @@ public:
 
 	enum class State
 	{
-		TIE, NONE, WIN_X, WIN_O
+		TIE, DUNO, WIN_X, WIN_O
 	};
 
 	/**

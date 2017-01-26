@@ -21,6 +21,7 @@ ADD_SUBDIRECTORY(lib/googletest)
 
 SET(TEST_SOURCE_FILES
 		test/gtest/GameBoardTest.cpp
+		test/gtest/GameTest.cpp
 		)
 
 ADD_EXECUTABLE(O_X-test ${SOURCE_FILES} ${TEST_SOURCE_FILES})
