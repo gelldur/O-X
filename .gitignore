@@ -35,4 +35,9 @@ Makefile*
 
 # QtCtreator CMake
 CMakeLists.txt.user
-
+/.idea/.name
+/.idea/O&X.iml
+/.idea/encodings.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/workspace.xml
