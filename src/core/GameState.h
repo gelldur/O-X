@@ -15,6 +15,7 @@ public:
 
 	void playerPicked();
 	void gameEnd();
+	void reset();
 
 	State getState() const;
 

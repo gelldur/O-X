@@ -32,6 +32,10 @@ GameState::State Game::getGameState() const
 
 bool Game::makeMove(Player* player, int x, int y)
 {
+	if (_gameState.getState() != GameState::State::PLAY)
+	{
+		return false;//Invalid state for making move
+	}
 	if (player == nullptr)
 	{
 		throw std::runtime_error("Disallowed!");
@@ -49,6 +53,12 @@ bool Game::makeMove(Player* player, int x, int y)
 	auto boardState = _gameBoard.getBoardState();
 	if (boardState != GameBoard::State::DUNO)
 	{
+		auto playerWhoWins = whoWins(boardState);
+		if (playerWhoWins != nullptr)
+		{
+			playerWhoWins->addPoints(1);
+		}
+
 		_gameState.gameEnd();
 		_active = nullptr;
 	}
@@ -111,4 +121,57 @@ void Game::pickPlayer()
 GameBoard::Mark Game::getMark(int x, int y) const
 {
 	return _gameBoard.getSafe(x, y);
+}
+
+Player* Game::getPlayer(GameBoard::Mark mark)
+{
+	if (_playerA.getMark() == mark)
+	{
+		return &_playerA;
+	}
+	else if (_playerB.getMark() == mark)
+	{
+		return &_playerB;
+	}
+	return nullptr;
+}
+
+int Game::getBoardWidth() const
+{
+	return _gameBoard.getWidth();
+}
+
+int Game::getBoardHeight() const
+{
+	return _gameBoard.getHeight();
+}
+
+Player* Game::whoWins()
+{
+	return whoWins(_gameBoard.getBoardState());
+}
+
+Player* Game::whoWins(GameBoard::State state)
+{
+	if (state == GameBoard::State::WIN_X)
+	{
+		return getPlayer(GameBoard::Mark::X);
+	}
+	else if (state == GameBoard::State::WIN_O)
+	{
+		return getPlayer(GameBoard::Mark::O);
+	}
+	return nullptr;
+}
+
+GameBoard::State Game::getBoardState() const
+{
+	return _gameBoard.getBoardState();
+}
+
+void Game::resetBoard()
+{
+	_gameBoard.reset();
+	_gameState.reset();
+	_active = nullptr;//extra reset (probably we don't have to but why not :P)
 }

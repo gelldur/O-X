@@ -11,11 +11,12 @@ public:
 	Player(GameBoard::Mark mark);
 
 	int getPoints() const;
+	void addPoints(int points);
 	GameBoard::Mark getMark() const;
 
 private:
 	int _points = 0;
-	GameBoard::Mark _mark;
+	const GameBoard::Mark _mark;
 };
 
 

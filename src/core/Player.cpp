@@ -18,3 +18,8 @@ GameBoard::Mark Player::getMark() const
 {
 	return _mark;
 }
+
+void Player::addPoints(int points)
+{
+	_points += points;
+}
