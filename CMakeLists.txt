@@ -4,7 +4,10 @@ PROJECT(O_X)
 SET(CMAKE_CXX_STANDARD 11)
 
 SET(SOURCE_FILES
+		src/core/Game.cpp src/core/Game.h
 		src/core/GameBoard.cpp src/core/GameBoard.h
+		src/core/GameState.cpp src/core/GameState.h
+		src/core/Player.cpp src/core/Player.h
 		)
 ADD_EXECUTABLE(O_X main.cpp ${SOURCE_FILES})
 
