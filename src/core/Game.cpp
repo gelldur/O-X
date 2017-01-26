@@ -175,3 +175,13 @@ void Game::resetBoard()
 	_gameState.reset();
 	_active = nullptr;//extra reset (probably we don't have to but why not :P)
 }
+
+const Player& Game::getPlayerA() const
+{
+	return _playerA;
+}
+
+const Player& Game::getPlayerB() const
+{
+	return _playerB;
+}

@@ -29,6 +29,8 @@ public:
 	 * @return nullptr if no player is active, else return active player
 	 */
 	Player* getActivePlayer() const;
+	const Player& getPlayerA() const;
+	const Player& getPlayerB() const;
 
 	void pickPlayer();
 
