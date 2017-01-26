@@ -1,7 +1,16 @@
-#include <iostream>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
 
-int main()
+#include <GameController.h>
+
+int main(int argc, char* argv[])
 {
-	std::cout << "Hello, World!" << std::endl;
-	return 0;
+	QGuiApplication app(argc, argv);
+
+	qmlRegisterType<GameController>("com.GameController", 1, 0, "GameController");
+
+	QQmlApplicationEngine engine;
+	engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
+	return app.exec();
 }
