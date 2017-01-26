@@ -46,9 +46,5 @@ void GameState::gameEnd()
 
 void GameState::reset()
 {
-	if (_state != State::END_GAME)
-	{
-		throw std::runtime_error("Incorrect state transfer");
-	}
 	_state = State::PICK_PLAYER;
 }
