@@ -1,0 +1,14 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.6)
+PROJECT(O_X)
+
+SET(CMAKE_CXX_STANDARD 11)
+
+SET(SOURCE_FILES main.cpp)
+ADD_EXECUTABLE(O_X ${SOURCE_FILES})
+
+TARGET_COMPILE_OPTIONS(O_X PRIVATE
+		-Wall -pedantic -Werror
+		-Wno-unused-private-field -Wnon-virtual-dtor)
+
+ADD_SUBDIRECTORY(lib/googletest)
+
