@@ -20,16 +20,6 @@ ApplicationWindow {
 
     title: qsTr("Noughts and Crosses")
 
-//    tools: ToolbarActions {
-//        id: toolbar
-//        active: true
-
-//        Action {
-//            text: "New Game"
-//            onTriggered: game.newGame()
-//        }
-//    }
-
     GameController {
            id: gameController
     }
@@ -147,12 +137,4 @@ ApplicationWindow {
         text: "XYZ"
         onClicked: { gameController.actionButton(); updateView(); }
     }
-
-
-//    MainForm {
-//        anchors.fill: parent
-//        mouseArea.onClicked: {
-//            console.log(qsTr('Clicked on background. Text: "' + textEdit.text + '"'))
-//        }
-//    }
 }

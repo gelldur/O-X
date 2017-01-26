@@ -24,6 +24,7 @@ Rectangle {
             PropertyChanges {
                 target: mark
                 text: " "
+                opacity: 0
             }
         },
         State {
@@ -31,6 +32,7 @@ Rectangle {
             PropertyChanges {
                 target: mark
                 text: "O"
+                opacity: 1
             }
         },
         State {
@@ -38,7 +40,24 @@ Rectangle {
             PropertyChanges {
                 target: mark
                 text: "X"
+                opacity: 1
             }
         }
     ]
+    transitions: Transition {
+        NumberAnimation {
+                property: "opacity"
+                from: 0
+                to: 1
+                easing.type: Easing.InExpo
+                duration: 250
+            }
+        ColorAnimation {
+                property: "color"
+                from: "#ece9ed"
+                to: "#34c1a8"
+                easing.type: Easing.InExpo
+                duration: 250
+            }
+        }
 }
