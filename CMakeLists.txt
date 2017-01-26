@@ -15,9 +15,8 @@ SET(SOURCE_FILES
 		src/core/GameBoard.cpp src/core/GameBoard.h
 		src/core/GameState.cpp src/core/GameState.h
 		src/core/Player.cpp src/core/Player.h
-		src/GameController.cpp src/GameController.h
 		)
-ADD_EXECUTABLE(O_X main.cpp ${SOURCE_FILES} ${RESOURCES})
+ADD_EXECUTABLE(O_X main.cpp src/GameController.cpp src/GameController.h ${SOURCE_FILES} ${RESOURCES})
 
 TARGET_COMPILE_OPTIONS(O_X PRIVATE
 		-Wall -pedantic -Werror
